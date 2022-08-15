@@ -5,7 +5,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                 dir
+                   script {
+                    if (ENVIRONMENT_NAME == 'development') {
+                        ENV_NAME = 'Development'
+                    } else if (ENVIRONMENT_NAME == 'release') {
+                        ENV_NAME = 'Production'
+                    }
+                }
             }
         }
     }
