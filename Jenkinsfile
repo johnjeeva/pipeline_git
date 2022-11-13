@@ -1,13 +1,21 @@
-
-
 pipeline {
-    agent { any { image 'maven:3.8.4-openjdk-11-slim' } }
+    agent any
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-              bat   'java            --version'
+                echo 'Building.. via jenkins file'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing.. via jenkins file'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
 }
-
